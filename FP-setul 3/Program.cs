@@ -1189,7 +1189,22 @@ namespace FP_setul_3
             Console.WriteLine("Introduceti elementele vectorului");
             string[] k = Console.ReadLine().Split(' ');
             int[] v = new int[n];
+            int nr = 0;bool afisat=false;
             for (int i = 0; i < v.Length; i++) v[i] = int.Parse(k[i]);
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (v[i] == v[j]) nr++;
+                }
+                if (nr >= n / 2+n%2) { Console.WriteLine($"Elementul {v[i]} este elementul majoritate"); 
+                    afisat = true;
+                break;
+                
+                }
+                nr = 0;
+            }
+            if (!afisat) Console.WriteLine("Nu exista");
         }
     }
     
